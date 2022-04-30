@@ -29,7 +29,7 @@ recognition.onresult = function(event) {
 
  console.log(event); 
 
- content = event.results[0][0].transcript;
+//add code to get the number
 
     document.getElementById("status").innerHTML = "The speech has been recognized: " + content; 
     to_number = Number(content);
@@ -70,11 +70,5 @@ function draw() {
 }
 
 function speak(){
-    var synth = window.speechSynthesis;
-
-    var utterThis = new SpeechSynthesisUtterance(speak_data);
-
-    synth.speak(utterThis);
-
-    speak_data = "";
+  
 }
