@@ -29,10 +29,12 @@ recognition.onresult = function(event) {
 
  console.log(event); 
 
-//add code to get the number
+ content = event.results[0][0].transcript;
 
+ console.log(content); 
     document.getElementById("status").innerHTML = "The speech has been recognized: " + content; 
     to_number = Number(content);
+    console.log(to_number); 
     if(Number.isInteger(to_number))
     {
       document.getElementById("status").innerHTML = "Started drawing apple "; 
@@ -70,5 +72,11 @@ function draw() {
 }
 
 function speak(){
-  
+    var synth = window.speechSynthesis;
+
+    var utterThis = new SpeechSynthesisUtterance(speak_data);
+
+    synth.speak(utterThis);
+
+    speak_data = "";
 }
